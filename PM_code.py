@@ -122,7 +122,7 @@ pmean = np.zeros((len(signers) , data_signers.shape[1]));  dmean=np.zeros((len(s
 for i in range(0,len(signers)):
     pmean[i,:] = ref_posture_mean[i,:]
     data_signers_NORM[i,:,:] = data_signers[i,:,:] - np.reshape(pmean[i,:],(-1,1)) 
-    dmean[i,:] = np.mean( np.linalg.norm(data_signers[i,:,:],axis=0) )
+    dmean[i,:] = np.mean( np.linalg.norm(data_signers_NORM[i,:,:],axis=0) )
     data_signers_NORM[i,:,:] = data_signers_NORM[i,:,:] / dmean[i,:]
 
 #%% COMPUTE COMMON PRINCIPAL MOVEMENTS (on the whole dataset with 6 signers)
